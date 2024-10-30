@@ -142,9 +142,9 @@ if __name__ == '__main__':
 
 
     ########################## DISPLAY IMAGE#########################################################""
-    content = load_image('src/style_transfer/images/montagne_small.jpg').to(device)
-    style = load_image('src/style_transfer/images/peinture1.jpg', shape=content.shape[-2:]).to(device)
-    #style = load_image('src/style_transfer/images/montagne_small.jpg', shape=content.shape[-2:]).to(device)
+    content = load_image('images/montagne_small.jpg').to(device)
+    style = load_image('images/peinture1.jpg', shape=content.shape[-2:]).to(device)
+    #style = load_image('images/montagne_small.jpg', shape=content.shape[-2:]).to(device)
 
     #imshow(im_convert(content))
     #imshow(im_convert(style))
@@ -209,8 +209,8 @@ if __name__ == '__main__':
         optimizer.step()
         print('Total loss=%f content=%f style=%f i=%d' % (total_loss, content_loss.item(), style_loss.item(), i)    )
         if  i % show_every == 0:
-            #imshow(im_convert(target))
-            plt.imsave('src\style_transfer/images/output.png', im_convert(target))
-            #print("loss: content=%d, style=%d => save %d" % (content_loss, style_loss, i))
-            print("save")
+            imshow(im_convert(target))
+            #plt.imsave('images/output.png', im_convert(target))
+            print("loss: content=%d, style=%d => save %d" % (content_loss, style_loss, i))
+            #print("save")
 
